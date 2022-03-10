@@ -1,0 +1,23 @@
+# setup Go
+wget -P /tmp http://go.googlecode.com/files/go1.0.3.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf /tmp/go1.0.3.linux-amd64.tar.gz
+export PATH=$PATH:/usr/local/go/bin
+
+# print meta-data
+go run aws-ec2-md.go
+{"ami-id":"ami-0fb653ca","ami-launch-index":"0","ami-manifest-path":"ubuntu-us-east-2/images/ubuntu-precise-12.04-amd64-server-20130204.manifest.xml","block-device-mapping":{"ami":"sda1","ephemeral0":"sda2","root":"/dev/sda1","swap":"sda3"}, …
+
+# pretty print meta-data
+go run aws-ec2-md.go --prettyprint
+{
+  "ami-id": "ami-0fb653ca",
+  "ami-launch-index": "0",
+  "ami-manifest-path": "ubuntu-us-east-2/images/ubuntu-precise-12.04-amd64-server-20130204.manifest.xml",
+  "block-device-mapping": {
+    "ami": "sda1",
+    "ephemeral0": "sda2",
+    "root": "/dev/sda1",
+    "swap": "sda3"
+  },
+  …
+}
